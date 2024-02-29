@@ -3,9 +3,15 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import {Link} from "@mui/material";
-import { Link as RouterLink } from 'react-router-dom';
+import {Link as RouterLink} from 'react-router-dom';
+import {selectUser} from "../../containers/users/usersSlice.ts";
+import {useAppSelector} from "../../app/hooks.ts";
+import AnonymousMenu from "../AnonymousMenu/AnonymMenu.tsx";
+import UserMenu from "../UserMenu/UserMenu.tsx";
 
 const Header = () => {
+    const user = useAppSelector(selectUser);
+
     return (
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static">
@@ -13,14 +19,12 @@ const Header = () => {
                     <Link sx={{color: 'white', marginRight: '20px'}} component={RouterLink} to="/">
                         <Typography sx={{fontSize: '30px'}}>Forum</Typography>
                     </Link>
-                    <div style={{display: 'flex'}}>
-                        <Link sx={{color: 'white', marginRight: '20px'}} component={RouterLink} to="/register" underline="hover">
-                            <Typography>Register</Typography>
-                        </Link>
-                        <Link sx={{color: 'white', marginRight: '20px'}} component={RouterLink} to="/login" underline="hover">
-                            <Typography>Login</Typography>
-                        </Link>
-                    </div>
+                    {user
+                        ?
+                        <UserMenu/>
+                        :
+                        <AnonymousMenu/>
+                    }
                 </Toolbar>
             </AppBar>
         </Box>

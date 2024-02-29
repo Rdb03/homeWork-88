@@ -38,7 +38,7 @@ postsRouter.post('/',auth, imagesUpload.single('image'), async (req, res, next) 
             user: user.id,
             title: req.body.title,
             description: req.body.description,
-            image: req.file ? 'images/' + req.file.filename : null,
+            image: req.file ? req.file.filename : null,
             date: dayjs(new Date().toISOString()).format('DD.MM.YYYY HH:mm'),
         });
 
