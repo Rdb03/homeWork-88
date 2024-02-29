@@ -36,13 +36,13 @@ const run = async () => {
     const [post1, post2] = await Post.create({
         title: 'test post 1',
         description: 'description admin post',
-        image: 'fixtures/post1.jpeg',
+        image: 'images/post1.png',
         date: '14.05.28',
         user: user1._id
     }, {
         title: 'test post 2',
         description: 'description user post',
-        image: 'fixtures/post2.png',
+        image: 'images/post2.jpg',
         date: '14.05.48',
         user: user2._id
     });

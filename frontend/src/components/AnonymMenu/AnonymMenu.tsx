@@ -1,8 +1,7 @@
-import React from 'react';
 import '../Header/Header.css';
 import { Link } from 'react-router-dom';
 
-const AnonymMenu = () => {
+const AnonymousMenu = () => {
   return (
     <div>
       <Link to={'/register'} className="link-reg-log">
@@ -15,4 +14,4 @@ const AnonymMenu = () => {
   );
 };
 
-export default AnonymMenu;
+export default AnonymousMenu;
